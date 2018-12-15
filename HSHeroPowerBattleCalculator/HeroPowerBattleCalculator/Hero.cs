@@ -31,7 +31,7 @@ namespace HeroPowerBattleCalculator
 
         protected int currentHealth;
         protected int currentArmor;
-        protected int NextFatigueDamage = 1;
+        protected int nextFatigueDamage = 1;
 
         public Hero()
         {
@@ -74,8 +74,8 @@ namespace HeroPowerBattleCalculator
 
         protected void CalculateFatigue()
         {
-            ReceiveDamage(NextFatigueDamage);
-            ++NextFatigueDamage;
+            ReceiveDamage(nextFatigueDamage);
+            ++nextFatigueDamage;
         }
     }
 }
