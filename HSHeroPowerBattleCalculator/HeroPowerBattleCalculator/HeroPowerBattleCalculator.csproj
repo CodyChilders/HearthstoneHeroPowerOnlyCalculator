@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Hero.cs" />
     <Compile Include="HeroAlreadyDeadException.cs" />
+    <Compile Include="Heros\Druid.cs" />
     <Compile Include="Heros\Hunter.cs" />
     <Compile Include="Heros\Warrior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

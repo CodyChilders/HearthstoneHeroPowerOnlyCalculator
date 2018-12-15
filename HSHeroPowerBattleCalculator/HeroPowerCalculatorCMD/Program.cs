@@ -14,8 +14,8 @@ namespace HeroPowerCalculatorCMD
         {
             bool includeFatigue = true;
 
-            Hero p1 = new Warrior();
-            Hero p2 = new Warrior();
+            Hero p1 = new Druid();
+            Hero p2 = new Druid();
             Hero winner = null;
 
             for(int turn = 1; turn < 50; turn++)
@@ -69,7 +69,7 @@ namespace HeroPowerCalculatorCMD
             string className = winner?.GetType().ToString() ?? "No class";
             string[] separatedNamespaceAndClass = className.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
             Debug.Assert(separatedNamespaceAndClass.Length == 2);
-            Console.WriteLine($"{winningPlayer} ({separatedNamespaceAndClass[1]}) wins!.");
+            Console.WriteLine($"{winningPlayer} ({separatedNamespaceAndClass[1]}) wins!");
         }
     }
 }
