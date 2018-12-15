@@ -14,8 +14,8 @@ namespace HeroPowerCalculatorCMD
         {
             bool includeFatigue = true;
 
-            Hero p1 = new Hunter();
-            Hero p2 = new Hunter();
+            Hero p1 = new Warrior();
+            Hero p2 = new Warrior();
             Hero winner = null;
 
             for(int turn = 1; turn < 50; turn++)
@@ -62,11 +62,11 @@ namespace HeroPowerCalculatorCMD
             }
             else
             {
-                throw new InvalidOperationException("Unknown winner.");
+                winningPlayer = "Neither player";
             }
 
             //in the form "HeroPowerBattleCalculator.CLASSNAME"
-            string className = winner.GetType().ToString();
+            string className = winner?.GetType().ToString() ?? "No class";
             string[] separatedNamespaceAndClass = className.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
             Debug.Assert(separatedNamespaceAndClass.Length == 2);
             Console.WriteLine($"{winningPlayer} ({separatedNamespaceAndClass[1]}) wins!.");

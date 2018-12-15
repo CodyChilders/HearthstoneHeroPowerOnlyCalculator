@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="Hero.cs" />
     <Compile Include="HeroAlreadyDeadException.cs" />
-    <Compile Include="Hunter.cs" />
+    <Compile Include="Heros\Hunter.cs" />
+    <Compile Include="Heros\Warrior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

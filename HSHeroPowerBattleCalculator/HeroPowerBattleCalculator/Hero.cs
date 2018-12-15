@@ -13,8 +13,13 @@ namespace HeroPowerBattleCalculator
         public const int HeroPowerCost = 2;
         public const int MaxMana = 10;
 
-        public int CurrentHealth { get; protected set; }
-        protected int CurrentFatigueDamage = 1;
+        public int CurrentHealth
+        {
+            get
+            {
+                return currentHealth;
+            }
+        }
 
         public bool IsDead
         {
@@ -24,9 +29,14 @@ namespace HeroPowerBattleCalculator
             }
         }
 
+        protected int currentHealth;
+        protected int currentArmor;
+        protected int NextFatigueDamage = 1;
+
         public Hero()
         {
-            CurrentHealth = MaxHealth;
+            currentHealth = MaxHealth;
+            currentArmor = 0;
         }
 
         /// <summary>
@@ -40,13 +50,32 @@ namespace HeroPowerBattleCalculator
 
         public void ReceiveDamage(int damage)
         {
-            CurrentHealth -= damage;
+            //armor introduces a lot of extra cases
+            //subtract damage from armor first.
+            //if there is still armor left, we're done
+            //otherwise, let the damage spill over into health.
+            if (currentArmor > 0)
+            {
+                currentArmor -= damage;
+                if (currentArmor < 0)
+                {
+                    damage = -currentArmor;
+                    currentArmor = 0;
+                }
+                else if (currentArmor >= 0)
+                {
+                    return;
+                }
+            }
+
+            //default case - deduct damage (or leftovers from insufficient armor) from health.
+            currentHealth -= damage;
         }
 
         protected void CalculateFatigue()
         {
-            CurrentHealth -= CurrentFatigueDamage;
-            ++CurrentFatigueDamage;
+            ReceiveDamage(NextFatigueDamage);
+            ++NextFatigueDamage;
         }
     }
 }
