@@ -22,15 +22,14 @@ namespace HeroPowerCalculatorCMD
             {
                 int mana = Math.Min(turn, Hero.MaxMana);
 
-                if(p1.IsDead)
+                int damageToP2 = p1.TakeTurn(mana, includeFatigue);
+                if (p1.IsDead)
                 {
                     winner = p2;
                     break;
                 }
 
-                int damageToP2 = p1.TakeTurn(mana, includeFatigue);
                 p2.ReceiveDamage(damageToP2);
-
                 if(p2.IsDead)
                 {
                     winner = p1;
@@ -38,7 +37,18 @@ namespace HeroPowerCalculatorCMD
                 }
 
                 int damageToP1 = p2.TakeTurn(mana, includeFatigue);
+                if (p2.IsDead)
+                {
+                    winner = p1;
+                    break;
+                }
+
                 p1.ReceiveDamage(damageToP1);
+                if (p1.IsDead)
+                {
+                    winner = p2;
+                    break;
+                }
             }
 
             string winningPlayer = null;
@@ -55,7 +65,7 @@ namespace HeroPowerCalculatorCMD
                 throw new InvalidOperationException("Unknown winner.");
             }
 
-            //in the form HeroPowerBattleCalculator.CLASSNAME
+            //in the form "HeroPowerBattleCalculator.CLASSNAME"
             string className = winner.GetType().ToString();
             string[] separatedNamespaceAndClass = className.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
             Debug.Assert(separatedNamespaceAndClass.Length == 2);
