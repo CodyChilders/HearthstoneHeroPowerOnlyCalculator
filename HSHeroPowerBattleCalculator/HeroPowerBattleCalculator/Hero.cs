@@ -10,6 +10,8 @@ namespace HeroPowerBattleCalculator
     {
         public const int MaxHealth = 30;
         public const int MinHealth = 1;
+        public const int HeroPowerCost = 2;
+        public const int MaxMana = 10;
 
         public int CurrentHealth { get; protected set; }
         protected int CurrentFatigueDamage = 1;
