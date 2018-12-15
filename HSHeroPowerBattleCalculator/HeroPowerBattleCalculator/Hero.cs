@@ -21,6 +21,14 @@ namespace HeroPowerBattleCalculator
             }
         }
 
+        public int TotalHealthAndArmor
+        {
+            get
+            {
+                return currentHealth + currentArmor;
+            }
+        }
+
         public bool IsDead
         {
             get

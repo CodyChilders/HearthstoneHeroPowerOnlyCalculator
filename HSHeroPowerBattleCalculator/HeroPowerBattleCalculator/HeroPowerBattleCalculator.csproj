@@ -44,7 +44,9 @@
     <Compile Include="HeroAlreadyDeadException.cs" />
     <Compile Include="Heros\Druid.cs" />
     <Compile Include="Heros\Hunter.cs" />
+    <Compile Include="Heros\Mage.cs" />
     <Compile Include="Heros\Priest.cs" />
+    <Compile Include="Heros\Rogue.cs" />
     <Compile Include="Heros\Warlock.cs" />
     <Compile Include="Heros\Warrior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
