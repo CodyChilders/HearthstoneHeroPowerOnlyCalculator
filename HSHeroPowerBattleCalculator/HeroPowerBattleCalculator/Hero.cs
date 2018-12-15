@@ -12,6 +12,7 @@ namespace HeroPowerBattleCalculator
         public const int MinHealth = 1;
         public const int HeroPowerCost = 2;
         public const int MaxMana = 10;
+        public const int MaxMinions = 7;
 
         public int CurrentHealth
         {
@@ -39,12 +40,15 @@ namespace HeroPowerBattleCalculator
 
         protected int currentHealth;
         protected int currentArmor;
-        protected int nextFatigueDamage = 1;
+        protected int nextFatigueDamage;
+        protected int currentMinions;
 
         public Hero()
         {
             currentHealth = MaxHealth;
             currentArmor = 0;
+            nextFatigueDamage = 0;
+            currentMinions = 0;
         }
 
         /// <summary>

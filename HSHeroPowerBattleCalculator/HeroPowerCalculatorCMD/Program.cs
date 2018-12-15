@@ -14,8 +14,8 @@ namespace HeroPowerCalculatorCMD
         {
             bool includeFatigue = true;
 
-            Hero p1 = new Rogue();
-            Hero p2 = new Rogue();
+            Hero p1 = new Paladin();
+            Hero p2 = new Paladin();
             Hero winner = null;
 
             for(int turn = 1; turn < 50; turn++)

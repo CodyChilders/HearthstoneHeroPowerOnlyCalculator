@@ -45,6 +45,7 @@
     <Compile Include="Heros\Druid.cs" />
     <Compile Include="Heros\Hunter.cs" />
     <Compile Include="Heros\Mage.cs" />
+    <Compile Include="Heros\Paladin.cs" />
     <Compile Include="Heros\Priest.cs" />
     <Compile Include="Heros\Rogue.cs" />
     <Compile Include="Heros\Warlock.cs" />
