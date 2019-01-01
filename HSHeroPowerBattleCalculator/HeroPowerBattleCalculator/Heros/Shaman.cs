@@ -8,6 +8,7 @@ namespace HeroPowerBattleCalculator
 {
     public class Shaman : Hero
     {
+        //use these as named array indices
         enum TotemTypes : int
         {
             healingTotem = 0,
@@ -15,14 +16,19 @@ namespace HeroPowerBattleCalculator
             wrathOfAirTotem = 2,
             stoneclawTotem = 3
         }
+
         bool[] ownedTotems = new bool[4];
         int totalTotems = 0;
-        Random rand = new Random();
+
+        static Random sharedRand = new Random();
+        Random rand;
 
         public Shaman()
         {
             for (int i = 0; i < ownedTotems.Length; i++)
                 ownedTotems[i] = false;
+            //this mitigates a Shaman v. Shaman game from initializing on the same seed.
+            rand = new Random(sharedRand.Next());
         }
 
         void SummonRandomTotem()
