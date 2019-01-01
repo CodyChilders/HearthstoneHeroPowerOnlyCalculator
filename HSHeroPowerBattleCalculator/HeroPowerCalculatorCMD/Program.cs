@@ -10,15 +10,18 @@ namespace HeroPowerCalculatorCMD
 {
     class Program
     {
+        const int MaxTurns = 50;
+
         static void Main(string[] args)
         {
+            
             bool includeFatigue = true;
 
-            Hero p1 = new Paladin();
-            Hero p2 = new Paladin();
+            Hero p1 = new Shaman();
+            Hero p2 = new Shaman();
             Hero winner = null;
 
-            for(int turn = 1; turn < 50; turn++)
+            for(int turn = 1; turn < MaxTurns; turn++)
             {
                 int mana = Math.Min(turn, Hero.MaxMana);
 

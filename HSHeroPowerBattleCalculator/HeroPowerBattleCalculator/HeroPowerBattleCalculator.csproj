@@ -48,6 +48,7 @@
     <Compile Include="Heros\Paladin.cs" />
     <Compile Include="Heros\Priest.cs" />
     <Compile Include="Heros\Rogue.cs" />
+    <Compile Include="Heros\Shaman.cs" />
     <Compile Include="Heros\Warlock.cs" />
     <Compile Include="Heros\Warrior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
