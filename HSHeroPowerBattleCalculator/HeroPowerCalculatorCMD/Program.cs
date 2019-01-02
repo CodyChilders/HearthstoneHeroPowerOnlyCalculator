@@ -32,7 +32,7 @@ namespace HeroPowerCalculatorCMD
                     break;
                 }
 
-                p2.ReceiveDamage(damageToP2);
+                p2.ReceiveDamage(damageToP2, p1.GetDamageType());
                 if(p2.IsDead)
                 {
                     winner = p1;
@@ -46,7 +46,7 @@ namespace HeroPowerCalculatorCMD
                     break;
                 }
 
-                p1.ReceiveDamage(damageToP1);
+                p1.ReceiveDamage(damageToP1, p2.GetDamageType());
                 if (p1.IsDead)
                 {
                     winner = p2;

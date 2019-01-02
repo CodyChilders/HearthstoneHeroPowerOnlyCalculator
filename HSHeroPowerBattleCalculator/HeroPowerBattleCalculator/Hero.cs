@@ -14,6 +14,13 @@ namespace HeroPowerBattleCalculator
         public const int MaxMana = 10;
         public const int MaxMinions = 7;
 
+        public enum DamageType
+        {
+            None,
+            Direct,
+            Attack,
+        }
+
         public int CurrentHealth
         {
             get
@@ -38,17 +45,14 @@ namespace HeroPowerBattleCalculator
             }
         }
 
-        protected int currentHealth;
-        protected int currentArmor;
-        protected int nextFatigueDamage;
-        protected int currentMinions;
+        protected int currentHealth = MaxHealth;
+        protected int currentArmor = 0;
+        protected int nextFatigueDamage = 1;
+        protected int currentMinions = 0;
 
         public Hero()
         {
-            currentHealth = MaxHealth;
-            currentArmor = 0;
-            nextFatigueDamage = 0;
-            currentMinions = 0;
+
         }
 
         /// <summary>
@@ -60,7 +64,15 @@ namespace HeroPowerBattleCalculator
         /// <returns>How much damage to deal to the enemy hero.</returns>
         public abstract int TakeTurn(int currentMana, bool includeFatigue);
 
-        public void ReceiveDamage(int damage)
+        /// <summary>
+        /// This function returns whether this hero attacks with 
+        /// direct damage (Hunter, Mage) or attack (Rogue, Paladin).
+        /// This distinction matters to the Shaman.
+        /// </summary>
+        /// <returns>How this hero deals damage.</returns>
+        public abstract DamageType GetDamageType();
+
+        public virtual void ReceiveDamage(int damage, DamageType type)
         {
             //armor introduces a lot of extra cases
             //subtract damage from armor first.
@@ -86,7 +98,7 @@ namespace HeroPowerBattleCalculator
 
         protected void CalculateFatigue()
         {
-            ReceiveDamage(nextFatigueDamage);
+            ReceiveDamage(nextFatigueDamage, DamageType.Direct);
             ++nextFatigueDamage;
         }
     }

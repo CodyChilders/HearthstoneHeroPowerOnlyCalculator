@@ -15,6 +15,11 @@ namespace HeroPowerBattleCalculator
 
         }
 
+        public override DamageType GetDamageType()
+        {
+            return DamageType.None;
+        }
+
         public override int TakeTurn(int currentMana, bool includeFatigue)
         {
             if (IsDead)
@@ -31,7 +36,7 @@ namespace HeroPowerBattleCalculator
 
             if(currentMana >= HeroPowerCost)
             {
-                ReceiveDamage(LifeTapDamage);
+                ReceiveDamage(LifeTapDamage, DamageType.Direct);
                 CalculateFatigue();
             }
 

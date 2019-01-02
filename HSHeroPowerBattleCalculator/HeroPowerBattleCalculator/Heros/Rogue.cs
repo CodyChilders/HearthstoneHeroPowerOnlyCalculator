@@ -15,6 +15,11 @@ namespace HeroPowerBattleCalculator
 
         }
 
+        public override DamageType GetDamageType()
+        {
+            return DamageType.Attack;
+        }
+
         public override int TakeTurn(int currentMana, bool includeFatigue)
         {
             if (IsDead)

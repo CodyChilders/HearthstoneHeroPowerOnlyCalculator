@@ -15,6 +15,11 @@ namespace HeroPowerBattleCalculator
 
         }
 
+        public override DamageType GetDamageType()
+        {
+            return DamageType.Attack;
+        }
+
         protected void SummonSilverHandRecruit()
         {
             if(currentMinions < MaxMinions)
