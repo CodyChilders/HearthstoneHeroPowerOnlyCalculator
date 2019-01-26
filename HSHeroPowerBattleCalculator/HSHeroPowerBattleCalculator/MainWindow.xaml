@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HSHeroPowerBattleCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Hearthstone Hero Power Only Battle Calculator" Height="1000" Width="850">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition>
+                <!-- Title of the application -->
+            </RowDefinition>
+            <RowDefinition>
+                <!-- Drop downs for selecting heros -->
+            </RowDefinition>
+            <RowDefinition>
+                <!-- List showing stats for each turn -->
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+                <!-- Only one column at the top level. Each row may subdivide into columns though. -->
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0">
+            <!-- title of the application -->
+        </Image>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <!-- Drop down to select your heros, and the "Fight" button -->
+            <Grid.RowDefinitions>
+                <RowDefinition>
+                    <!-- 2 drop down combo boxes of images -->
+                </RowDefinition>
+                <RowDefinition>
+                    <!-- The "Fight" button -->
+                </RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <DataGrid>
+            <!-- Output from the match log -->
+        </DataGrid>
     </Grid>
 </Window>
