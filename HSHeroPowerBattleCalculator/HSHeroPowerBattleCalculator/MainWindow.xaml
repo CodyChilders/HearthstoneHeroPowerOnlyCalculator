@@ -18,15 +18,10 @@
                 <!-- List showing stats for each turn -->
             </RowDefinition>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition>
-                <!-- Only one column at the top level. Each row may subdivide into columns though. -->
-            </ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Image Grid.Row="0" Grid.Column="0">
-            <!-- title of the application -->
-        </Image>
-        <Grid Grid.Row="1" Grid.Column="0">
+
+        <Image Source="HSLogo.png" Stretch="Fill" Grid.Row="0" />
+
+        <Grid Grid.Row="1">
             <!-- Drop down to select your heros, and the "Fight" button -->
             <Grid.RowDefinitions>
                 <RowDefinition>
@@ -36,8 +31,67 @@
                     <!-- The "Fight" button -->
                 </RowDefinition>
             </Grid.RowDefinitions>
+            <ComboBox>
+                <ComboBoxItem IsSelected="True">
+                    <Image Source="druid.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="hunter.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="mage.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="paladin.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="priest.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="rogue.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="shaman.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="warlock.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="warrior.png"/>
+                </ComboBoxItem>
+            </ComboBox>
+            <ComboBox>
+                <ComboBoxItem IsSelected="True">
+                    <Image Source="druid.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="hunter.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="mage.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="paladin.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="priest.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="rogue.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="shaman.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="warlock.png"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Image Source="warrior.png"/>
+                </ComboBoxItem>
+            </ComboBox>
         </Grid>
-        <DataGrid>
+        
+        <DataGrid Grid.Row="2">
             <!-- Output from the match log -->
         </DataGrid>
     </Grid>
