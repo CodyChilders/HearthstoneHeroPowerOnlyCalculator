@@ -21,6 +21,9 @@ namespace HSHeroPowerBattleCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        Hero p1 = null;
+        Hero p2 = null;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,13 +32,13 @@ namespace HSHeroPowerBattleCalculator
         private void P1_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int newIndex = (sender as ComboBox).SelectedIndex;
-            Hero selectedHero = GetHeroFromCombobox(newIndex);
+            p1 = GetHeroFromCombobox(newIndex);
         }
 
         private void P2_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int newIndex = (sender as ComboBox).SelectedIndex;
-            Hero selectedHero = GetHeroFromCombobox(newIndex);
+            p2 = GetHeroFromCombobox(newIndex);
         }
 
         Hero GetHeroFromCombobox(int index)
@@ -63,6 +66,11 @@ namespace HSHeroPowerBattleCalculator
                 default:
                     throw new IndexOutOfRangeException($"{index} is not in the valid range 0-9.");
             }
+        }
+
+        private void Fight_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Turn[] battleLog = BattleSimulation.RunBattle(p1, p2, true);
         }
     }
 }
