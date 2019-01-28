@@ -29,6 +29,14 @@ namespace HeroPowerBattleCalculator
             }
         }
 
+        public int CurrentArmor
+        {
+            get
+            {
+                return currentArmor;
+            }
+        }
+
         public int TotalHealthAndArmor
         {
             get
@@ -42,6 +50,14 @@ namespace HeroPowerBattleCalculator
             get
             {
                 return CurrentHealth < MinHealth;
+            }
+        }
+
+        public int NextFatigue
+        {
+            get
+            {
+                return nextFatigueDamage;
             }
         }
 
