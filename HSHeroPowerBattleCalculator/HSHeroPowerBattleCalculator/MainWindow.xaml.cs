@@ -64,7 +64,7 @@ namespace HSHeroPowerBattleCalculator
                 case 8:
                     return new Warrior();
                 default:
-                    throw new IndexOutOfRangeException($"{index} is not in the valid range 0-9.");
+                    throw new IndexOutOfRangeException($"{index} is not in the valid range 0-8.");
             }
         }
 
