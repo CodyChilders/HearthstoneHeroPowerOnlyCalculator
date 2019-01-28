@@ -127,5 +127,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HeroPowerBattleCalculator\HeroPowerBattleCalculator.csproj">
+      <Project>{590893a2-7a23-448d-9008-737fb1e56b9d}</Project>
+      <Name>HeroPowerBattleCalculator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
