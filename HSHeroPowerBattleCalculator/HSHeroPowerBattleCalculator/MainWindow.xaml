@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HSHeroPowerBattleCalculator"
         mc:Ignorable="d"
-        Title="Hearthstone Hero Power Only Battle Calculator" Height="1000" Width="850">
+        Title="Hearthstone Hero Power Only Battle Calculator" Height="800" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition>
@@ -19,7 +19,7 @@
             </RowDefinition>
         </Grid.RowDefinitions>
 
-        <Image Source="HSLogo.png" Stretch="Fill" Grid.Row="0" />
+        <Image Source="HSLogo.png" Stretch="Uniform" Grid.Row="0" Margin="0,0,0.2,168.2" />
 
         <Grid Grid.Row="1" Grid.RowSpan="3">
             <!-- Drop down to select your heros, and the "Fight" button -->
@@ -34,65 +34,65 @@
             <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <ComboBox Margin="0,0,0,-0.4" Width="409" SelectionChanged="P1_ComboBox_SelectionChanged">
                     <ComboBoxItem IsSelected="True">
-                        <Image Source="druid.png"/>
+                        <Image Source="druid.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="hunter.png"/>
+                        <Image Source="hunter.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="mage.png"/>
+                        <Image Source="mage.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="paladin.png"/>
+                        <Image Source="paladin.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="priest.png"/>
+                        <Image Source="priest.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="rogue.png"/>
+                        <Image Source="rogue.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="shaman.png"/>
+                        <Image Source="shaman.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="warlock.png"/>
+                        <Image Source="warlock.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="warrior.png"/>
+                        <Image Source="warrior.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                 </ComboBox>
                 <ComboBox Margin="0,0,0,-0.4" Width="428" SelectionChanged="P2_ComboBox_SelectionChanged">
                     <ComboBoxItem IsSelected="True">
-                        <Image Source="druid.png"/>
+                        <Image Source="druid.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="hunter.png"/>
+                        <Image Source="hunter.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="mage.png"/>
+                        <Image Source="mage.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="paladin.png"/>
+                        <Image Source="paladin.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="priest.png"/>
+                        <Image Source="priest.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="rogue.png"/>
+                        <Image Source="rogue.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="shaman.png"/>
+                        <Image Source="shaman.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="warlock.png"/>
+                        <Image Source="warlock.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <Image Source="warrior.png"/>
+                        <Image Source="warrior.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <Button Margin="-10,275,10.2,43.2" Grid.RowSpan="2" Click="Fight_Button_Click">
-                <Image Source="BrawlButton.png"/>
+                <Image Source="BrawlButton.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
         </Grid>
 
