@@ -1,6 +1,8 @@
 ﻿using HeroPowerBattleCalculator;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,12 +33,14 @@ namespace HSHeroPowerBattleCalculator
 
         private void P1_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Debug.Assert(sender is ComboBox);
             int newIndex = (sender as ComboBox).SelectedIndex;
             p1 = GetHeroFromCombobox(newIndex);
         }
 
         private void P2_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Debug.Assert(sender is ComboBox);
             int newIndex = (sender as ComboBox).SelectedIndex;
             p2 = GetHeroFromCombobox(newIndex);
         }
@@ -71,6 +75,53 @@ namespace HSHeroPowerBattleCalculator
         private void Fight_Button_Click(object sender, RoutedEventArgs e)
         {
             Turn[] battleLog = BattleSimulation.RunBattle(p1, p2, true);
+            WriteBattleLogToGrid(battleLog, dataGrid);
+        }
+
+        void WriteBattleLogToGrid(Turn[] log, DataGrid dataGrid)
+        {
+            Debug.Assert(log != null && log.Length > 0);
+            Debug.Assert(dataGrid != null);
+
+            //Item1 contains the variable name based on the definition of "Turn"
+            //Item2 contains the  displayed value as intended to be read by the user.
+            Tuple<string, string>[] columnHeaders = new Tuple<string, string>[]
+            {
+                new Tuple<string, string>("TurnNumber", "Turn number"),
+                new Tuple<string, string>("Mana", "Mana"),
+                new Tuple<string, string>("P1Health", "Player 1 health"),
+                new Tuple<string, string>("P1Armor", "Player 1 armor"),
+                new Tuple<string, string>("P2Health", "Player 2 health"),
+                new Tuple<string, string>("P2Armor", "Player 2 armor")
+            };
+
+            InitializeColumns(dataGrid, columnHeaders);
+            InitializeRows(dataGrid, log);
+        }
+
+        void InitializeRows(DataGrid dataGrid, Turn[] log)
+        {
+            Debug.Assert(dataGrid != null);
+            Debug.Assert(log != null && log.Length > 0);
+
+            foreach(Turn turn in log)
+            {
+                dataGrid.Items.Add(turn);
+            }
+        }
+
+        void InitializeColumns(DataGrid dataGrid, Tuple<string, string>[] columnHeaders)
+        {
+            Debug.Assert(dataGrid != null);
+            Debug.Assert(columnHeaders != null && columnHeaders.Length > 0);
+
+            for (int i = 0; i < columnHeaders.Length; ++i)
+            {
+                DataGridTextColumn newColumn = new DataGridTextColumn();
+                newColumn.Binding = new Binding(columnHeaders[i].Item1);
+                newColumn.Header = columnHeaders[i].Item2;
+                dataGrid.Columns.Add(newColumn);
+            }
         }
     }
 }
