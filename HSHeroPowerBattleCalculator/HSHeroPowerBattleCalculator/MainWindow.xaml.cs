@@ -76,6 +76,63 @@ namespace HSHeroPowerBattleCalculator
         {
             Turn[] battleLog = BattleSimulation.RunBattle(p1, p2, true);
             WriteBattleLogToGrid(battleLog, dataGrid);
+
+            //After the battle comletes, refresh the heros. 
+            //Otherwise, if the user brawls again without changing the combo boxes, they'll
+            //be dead/nearly dead from the previous game.
+            RefreshHero(ref p1);
+            RefreshHero(ref p2);
+        }
+
+        void RefreshHero(ref Hero hero)
+        {
+            //If the user runs the simulation >1 time without changing at least one ComboBox selection,
+            //the hero will be dead still from the previous run. This detects which type the hero was
+            //and re-instantiates it.
+            if (hero == null)
+                return;
+
+            Type heroType = hero.GetType();
+            if (heroType == typeof(Druid))
+            {
+                hero = new Druid();
+            }
+            else if (heroType == typeof(Hunter))
+            {
+                hero = new Hunter();
+            }
+            else if (heroType == typeof(Mage))
+            {
+                hero = new Mage();
+            }
+            else if (heroType == typeof(Paladin))
+            {
+                hero = new Paladin();
+            }
+            else if (heroType == typeof(Priest))
+            {
+                hero = new Priest();
+            }
+            else if (heroType == typeof(Rogue))
+            {
+                hero = new Rogue();
+            }
+            else if (heroType == typeof(Shaman))
+            {
+                hero = new Shaman();
+            }
+            else if (heroType == typeof(Warlock))
+            {
+                hero = new Warlock();
+            }
+            else if (heroType == typeof(Warrior))
+            {
+                hero = new Warrior();
+            }
+            else
+            {
+                throw new NotSupportedException($"Unknown hero type: {heroType.ToString()}");
+            }
         }
 
         void WriteBattleLogToGrid(Turn[] log, DataGrid dataGrid)
@@ -95,8 +152,17 @@ namespace HSHeroPowerBattleCalculator
                 new Tuple<string, string>("P2Armor", "Player 2 armor")
             };
 
+            ClearOldValues(dataGrid);
             InitializeColumns(dataGrid, columnHeaders);
             InitializeRows(dataGrid, log);
+        }
+
+        void ClearOldValues(DataGrid dataGrid)
+        {
+            Debug.Assert(dataGrid != null);
+
+            dataGrid.Items.Clear();
+            dataGrid.Items.Refresh();
         }
 
         void InitializeRows(DataGrid dataGrid, Turn[] log)
